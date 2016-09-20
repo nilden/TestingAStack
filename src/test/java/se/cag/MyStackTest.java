@@ -4,17 +4,19 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
+import java.util.Stack;
+
 import static org.junit.jupiter.api.Assertions.assertSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @DisplayName("A stack")
-class MytackTest {
-    MyStack myStack;
+class StackTest {
+    Stack stack;
 
     @Test
     @DisplayName("is instantiated with new Stack()")
     void isInstantiatedWithNew() {
-        MyStack myStack  = new MyStack();
+        stack = new Stack();
     }
 
     @Nested
@@ -24,8 +26,8 @@ class MytackTest {
         @Test
         @DisplayName("is empty")
         void isEmpty() {
-            myStack  = new MyStack();
-            assertTrue(myStack.isEmpty());
+            stack = new Stack();
+            assertTrue(stack.isEmpty());
         }
 
         @Test
@@ -43,30 +45,30 @@ class MytackTest {
             @Test
             @DisplayName("it is no longer empty")
             void isEmpty() {
-                myStack  = new MyStack();
-                myStack.push(new String());
-                assertTrue(myStack.size() > 0);
+                stack = new Stack();
+                stack.push(new String());
+                assertTrue(stack.size() > 0);
             }
 
             @Test
             @DisplayName("returns the element when popped and is empty")
             void returnElementWhenPopped() {
-                myStack  = new MyStack();
+                stack = new Stack();
 
                 String s = new String();
-                myStack.push(s);
-                assertSame(s, myStack.pop());
-                assertTrue(myStack.size() == 0);
+                stack.push(s);
+                assertSame(s, stack.pop());
+                assertTrue(stack.size() == 0);
             }
 
             @Test
             @DisplayName("returns the element when peeked but remains not empty")
             void returnElementWhenPeeked(){
-                myStack  = new MyStack();
+                stack = new Stack();
                 String s1 = new String();
-                myStack.push(s1);
-                assertSame(s1, myStack.peek());
-                assertTrue(myStack.size() == 1);
+                stack.push(s1);
+                assertSame(s1, stack.peek());
+                assertTrue(stack.size() == 1);
 
             }
         }
